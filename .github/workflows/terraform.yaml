@@ -1,19 +1,19 @@
 name: terraform Workflow
 
 on:
- push:
-  branches:
-   - s3-site
+  push:
+    branches:
+    - s3-site
 
 jobs:
- s3-site-branch-job:
-  name: Terraform deploy from ${{github.ref }} 
-  runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/s3-site'
+  s3-site-branch-job:
+    name: Terraform deploy from ${{github.ref }} 
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/s3-site'
 
-  defaults:
-   run:
-    working-directory: terraform/s3-site
+    defaults:
+     run:
+       working-directory: terraform/s3-site
 
   steps:
   - name: Checkout repo
